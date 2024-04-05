@@ -31,6 +31,7 @@ model User {
 
   claims Claim[]
   reactions Reaction[]
+  sessions Session[]
 
 }
 
@@ -69,4 +70,11 @@ model Reaction {
 
   claimId Int
   claim Claim @relation(fields: [claimId], references: [id])
+}
+
+model Session {
+  id        String   @id
+  userId    Int
+  expiresAt DateTime
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
 }

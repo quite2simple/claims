@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  BASIC
+  PREMIUM
+  MODERATOR
+  ADMIN
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  hashedPassword String
+  createdAt DateTime @default(now())
+  roles UserRole[] @default([BASIC])
+  verified Boolean @default(false)
+  muted Boolean @default(false)
+
+  claims Claim[]
+  reactions Reaction[]
+
+}
+
+model Claim {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  createdAt DateTime @default(now())
+  editedAt DateTime @default(now())
+  verified Boolean @default(false)
+  verifiedAt DateTime?
+
+  creatorId Int
+  creator User @relation(fields: [creatorId], references: [id])
+
+  sources Source[]
+  reactions Reaction[]
+}
+
+model Source {
+  id Int @id @default(autoincrement())
+  url String
+  verified Boolean @default(false)
+  verifiedAt DateTime?
+
+  claimId Int
+  claim Claim @relation(fields: [claimId], references: [id])
+}
+
+model Reaction {
+  id Int @id @default(autoincrement())
+  approve Boolean
+  
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+
+  claimId Int
+  claim Claim @relation(fields: [claimId], references: [id])
+}

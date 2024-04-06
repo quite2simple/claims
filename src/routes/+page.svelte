@@ -13,7 +13,8 @@
         <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
         <a href="/">hi</a>
         {#each data.claims as claim}
-            <Claim 
+            <Claim
+            id={claim.id} 
             title={claim.title} 
             creator={claim.creator.username} 
             description={claim.description} 

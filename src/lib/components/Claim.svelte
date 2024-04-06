@@ -1,4 +1,5 @@
 <script lang="ts">
+    export let id = 0;
     export let title = "Claim title";
     export let creator = "By creator";
     export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
@@ -11,6 +12,7 @@
         <h3>By {creator}</h3>
     </div>
     <p>{description}</p>
+    <a href={"/claims/" + id} class="button read-full">Read full</a>
     <div class="claim-footer">
         <div class="claim-sources">
             <h4>1 source</h4>
@@ -21,13 +23,13 @@
             <button class="button">v</button>
         </div>
     </div>
-    <a href="/claims/1" class="button read-full">Read full</a>
+
 </div>
 
 <style lang="scss">
     .claim {
         background-color: $background2;
-        padding: 20px;
+        padding: 5px 20px 20px;
         border-radius: 15px;
         margin: 10px 0;
     }
@@ -45,6 +47,13 @@
         text-decoration: none;
         display: block;
         width: fit-content;
+    }
+    .claim-rating-actions {
+        display: flex;
+        gap: 5px;
+    }
+    .button {
+        min-width: 20px;
     }
 
 </style>

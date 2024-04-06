@@ -16,15 +16,18 @@ $accent-green2: hsl(165, 100%, 60%);
 $accent-red1: hsl(330, 100%, 40%);
 $accent-red2: hsl(330, 100%, 60%);
 
+@mixin centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 :root {
-
-
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 10px;
     background-color: $background1;
     color: $text;
-
 }
 
 /* main is a grid with left and right column taking 20% each and the middle column taking the rest */
@@ -32,6 +35,7 @@ $accent-red2: hsl(330, 100%, 60%);
 h1 {
     font-size: 3rem;
     font-weight: 700;
+    margin: 2rem 0;
 }
 
 h2 {
@@ -83,6 +87,9 @@ label {
 }
 
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $primary;
     font: inherit;
     font-size: 2rem;
@@ -90,5 +97,10 @@ button {
     border: none;
     padding: 2px 5px;
     border-radius: 5px;
-    min-width: 40px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.auth-form {
+    @include centered();
 }

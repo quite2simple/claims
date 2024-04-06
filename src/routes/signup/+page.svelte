@@ -3,16 +3,31 @@
     export let form;
 </script>
 
-<h1>Sign up</h1>
+<div class="auth-form">
+    <h1>Sign up</h1>
+    <form method="POST" use:enhance>
+        <div id="#message">
+            {#if form?.message}
+            <p>{form.message}</p>
+            {/if}
+        </div>
+        <div id="username">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username"><br>
+        </div>
+        <div id="password">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password"><br>
+        </div>
+        
+        <button>Sign up</button>
+        <p>Already have an account? <a href="/login">Log in</a></p>
+    </form>
+</div>
 
-<form method="POST" use:enhance>
-    {#if form?.message}
-    <p>{form.message}</p>
-    {/if}
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username"><br>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password"><br>
-    <button>Sign up</button>
-    <p>Already have an account? <a href="/login">Log in</a></p>
-</form>
+<style lang="scss">
+    form {
+        @include centered;
+        gap: 1rem;
+    }
+</style>

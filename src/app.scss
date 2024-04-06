@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$background1: hsl(272, 100%, 10%);
+$background2: hsl(272, 100%, 12%);
+$text: hsl(0, 0%, 100%);
+$text-subtle: hsl(271, 100%, 90%);
+$primary: hsl(272, 100%, 25%);
+$accent-green1: hsl(165, 100%, 40%);
+$accent-green2: hsl(165, 100%, 60%);
+$accent-red1: hsl(330, 100%, 40%);
+$accent-red2: hsl(330, 100%, 60%);
+
+:root {
+
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    background-color: $background1;
+    color: $text;
+
+}
+
+/* main is a grid with left and right column taking 20% each and the middle column taking the rest */
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+    font-weight: 400;
+    color: $text-subtle;
+}
+
+h4 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+}
+
+a {
+    font-size: 1.6rem;
+    color: $text-subtle;
+    &:hover {
+        color: $accent-red2;
+    }
+}
+
+p {
+    font-size: 1.6rem;
+    margin: 0.25rem 0;
+    line-height: 1.5;
+}
+
+input {
+    margin-bottom: 2rem;
+    background-color: var(--background2);
+    border-style: none;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 1.6rem;
+    color: var(--text);
+    padding: 5px;
+}
+
+label {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+}
+
+button {
+    background-color: $primary;
+    font: inherit;
+    font-size: 2rem;
+    color: inherit;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 5px;
+    min-width: 40px;
+}

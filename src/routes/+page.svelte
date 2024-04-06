@@ -1,5 +1,7 @@
 <script lang="ts">
     import Claim from "$lib/components/Claim.svelte";
+
+    export let data;
 </script>
 
 <div id="page">
@@ -10,7 +12,14 @@
         <h1>Welcome to SvelteKit</h1>
         <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
         <a href="/">hi</a>
-        <Claim />
+        {#each data.claims as claim}
+            <Claim 
+            title={claim.title} 
+            creator={claim.creator.username} 
+            description={claim.description} 
+            rating={claim.rating} 
+            />
+        {/each}
     </div>
 
 </div>

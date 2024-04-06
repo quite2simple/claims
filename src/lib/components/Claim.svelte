@@ -1,23 +1,23 @@
 <script lang="ts">
-    export let claimTitle = "Claim title";
-    export let claimAuthor = "By author";
-    export let claimBody = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
-    export let claimRating = 1;
+    export let title = "Claim title";
+    export let creator = "By creator";
+    export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
+    export let rating = 1;
 </script>
 
 <div class="claim">
     <div class="claim-header">
-        <h2>{claimTitle}</h2>
-        <h3>By {claimAuthor}</h3>
+        <h2>{title}</h2>
+        <h3>By {creator}</h3>
     </div>
-    <p>{claimBody}</p>
+    <p>{description}</p>
     <div class="claim-footer">
         <div class="claim-sources">
             <h4>1 source</h4>
         </div>
         <div class="claim-rating-actions">
             <button class="button">^</button>
-            <button class="button">{claimRating}</button>
+            <button class="button">{rating}</button>
             <button class="button">v</button>
         </div>
     </div>
@@ -41,7 +41,7 @@
     .read-full {
         font-weight: 700;
         margin-top: 1rem;
-        padding: 6px 15px;
+        padding: 6px 15px 0 0;
         text-decoration: none;
         display: block;
         width: fit-content;

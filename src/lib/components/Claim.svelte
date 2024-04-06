@@ -18,9 +18,9 @@
             <h4>1 source</h4>
         </div>
         <div class="claim-rating-actions">
-            <button class="button">^</button>
+            <button class="button">⇑</button>
             <button class="button">{rating}</button>
-            <button class="button">v</button>
+            <button class="button">⇓</button>
         </div>
     </div>
 

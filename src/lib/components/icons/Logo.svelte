@@ -1,6 +1,5 @@
 <svg
-   width="180"
-   height="30.032"
+
    viewBox="0 0 84.563659 14.108704"
    version="1.1"
    id="svg5"
@@ -42,3 +41,9 @@
        id="path22832" />
   </g>
 </svg>
+
+<style lang="scss">
+    svg {
+       @include inline-svg($h1-size);
+    }
+</style>

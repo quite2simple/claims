@@ -16,6 +16,11 @@ $accent-green2: hsl(165, 100%, 60%);
 $accent-red1: hsl(330, 100%, 40%);
 $accent-red2: hsl(330, 100%, 60%);
 
+$h1-size: 3rem;
+$h2-size: 2.2rem;
+$h3-size: 1.6rem;
+$h4-size: 1.6rem;
+
 @mixin centered {
     display: flex;
     flex-direction: column;
@@ -33,26 +38,26 @@ $accent-red2: hsl(330, 100%, 60%);
 /* main is a grid with left and right column taking 20% each and the middle column taking the rest */
 
 h1 {
-    font-size: 3rem;
+    font-size: $h1-size;
     font-weight: 700;
     margin: 2rem 0;
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: $h2-size;
     font-weight: 700;
     margin: 1rem 0;
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: $h3-size;
     margin: 0.5rem 0;
     font-weight: 400;
     color: $text-subtle;
 }
 
 h4 {
-    font-size: 1.6rem;
+    font-size: $h4-size;
     margin: 0.5rem 0;
 }
 
@@ -99,6 +104,11 @@ button {
     border-radius: 5px;
     width: fit-content;
     height: fit-content;
+}
+
+@mixin inline-svg($size) {
+    height: $size;
+    width: auto;
 }
 
 .auth-form {

@@ -20,7 +20,7 @@
             <input type="password" name="password" id="password"><br>
         </div>
         
-        <button>Log in</button>
+        <button class="auth-button">Log in</button>
         <p>Don't have an account? <a href="/signup">Sign up</a></p>
     </form>
 </div>

@@ -13,7 +13,7 @@
     <nav>
         {#if loggedIn}
             <p>@{username}</p>
-            <a href="/">
+            <a href="/me">
                 <Account />
             </a>
         {:else}

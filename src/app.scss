@@ -114,3 +114,12 @@ button {
 .auth-form {
     @include centered();
 }
+
+.auth-button {
+    padding: 1rem 3rem;
+}
+
+.wip-placeholder {
+    color: $text-subtle;
+    font-size: 1.4rem;
+}

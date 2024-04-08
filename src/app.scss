@@ -8,6 +8,7 @@
 
 $background1: hsl(272, 100%, 10%);
 $background2: hsl(272, 100%, 12%);
+$background3: hsl(272, 100%, 15%);
 $text: hsl(0, 0%, 100%);
 $text-subtle: hsl(271, 100%, 90%);
 $primary: hsl(272, 100%, 25%);
@@ -75,9 +76,9 @@ p {
     line-height: 1.5;
 }
 
-input {
+input, textarea {
     margin-bottom: 2rem;
-    background-color: var(--background2);
+    background-color: $background3;
     border-style: none;
     border-radius: 10px;
     font: inherit;
@@ -111,7 +112,7 @@ button {
     width: auto;
 }
 
-.auth-form {
+.auth-form, .claim-form {
     @include centered();
 }
 

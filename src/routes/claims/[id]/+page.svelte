@@ -1,10 +1,12 @@
 <script lang="ts">
     export let data;
+
+    $: isYours = data.claim?.creator.id === data.user?.id;
 </script>
 
 <div id="claim">
     <h1>{data.claim?.title}</h1>
-    <h3>By {data.claim?.creator.username}</h3>
+    <h3>By {data.claim?.creator.username} {#if isYours} (you){/if}</h3>
     <p>{data.claim?.description}</p>
     {#if data.sources}
         <p>Sources:</p>

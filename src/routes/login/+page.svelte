@@ -21,7 +21,7 @@
         </div>
         
         <button>Log in</button>
-        <p>Don't have an account? <a href="/login">Sign up</a></p>
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
     </form>
 </div>
 

@@ -1,6 +1,9 @@
 <script lang="ts">
     import Logo from "./icons/Logo.svelte";
     import Account from "./icons/Account.svelte";
+
+    export let loggedIn: boolean = false;
+    export let username: string = "";
 </script>
 
 <header>
@@ -8,9 +11,14 @@
         <Logo />
     </a>
     <nav>
-        <a href="/">
-            <Account />
-        </a>
+        {#if loggedIn}
+            <p>@{username}</p>
+            <a href="/">
+                <Account />
+            </a>
+        {:else}
+            <a href="/login">Log in</a>
+        {/if}
     </nav>
 </header>
 
@@ -34,5 +42,6 @@
     nav, a {
         display: flex;
         align-items: center;
+        gap: 1rem;
     }
 </style>

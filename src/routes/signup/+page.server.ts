@@ -42,7 +42,7 @@ export const actions: Actions = {
 			}
 		});
 
-		// console.log("New user created:", username);
+		console.log("New user created:", username);
 
 		// create session cookie
 

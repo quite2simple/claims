@@ -12,12 +12,11 @@
     <p>id: {user?.id}</p>
     <p>Created at: {createdAt}</p>
     <p>Roles:</p>
-    <!-- <ul>
-        {#each user?.roles as role}
-            <li>{role}</li>
+    <ul>
+        {#each data.roles as role}
+            <li><p>{role}</p></li>
         {/each}
-    </ul> -->
-    <span class="wip-placeholder">Can't display roles yet. Coming soon!</span>
+    </ul>
     <p>
         {#if user?.verified}
             Verified
@@ -45,5 +44,8 @@
         gap: 1rem;
         width: 80%;
         margin: 0 auto;
+    }
+    ul {
+        list-style: none;
     }
 </style>

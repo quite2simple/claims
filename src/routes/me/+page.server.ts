@@ -1,6 +1,7 @@
 import type { PageServerLoad } from './$types';
 import prisma from '$lib/prisma';
 import { redirect } from '@sveltejs/kit';
+import { UserRole } from '@prisma/client';
 
 export const load = (async ({parent}) => {
     const parentData = await parent();
@@ -9,5 +10,6 @@ export const load = (async ({parent}) => {
         redirect(302, '/login');
     }
     const user = await prisma.user.findUnique({ where: { id: parentData.user?.id } });
-    return {user};
+    console.log(user?.roles);
+    return {user, roles: user?.roles as UserRole[]};
 }) satisfies PageServerLoad;

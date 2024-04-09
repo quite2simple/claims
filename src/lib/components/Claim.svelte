@@ -4,6 +4,58 @@
     export let creator = "By creator";
     export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
     export let rating = 1;
+    // -1 - disapprove, 1 - approve, 0 - no reaction
+    export let userReaction = 0;
+
+    $: approveButtonStyle = (userReaction === 1) ? "button approve-active" : "button";
+    $: disapproveButtonStyle = (userReaction === -1) ? "button disapprove-active" : "button";
+
+    const setReaction = async (v: number) => {
+        const oldUserReaction = userReaction;
+        if (userReaction === v) {
+            userReaction = 0;
+            rating -= v;
+            await deleteReaction();
+            return;
+        }
+        else {
+            userReaction = v;
+        }
+        const diff = userReaction - oldUserReaction;
+        if (Math.abs(diff) === 2) {
+            await updateReaction((v === 1) ? true : false);
+        }
+        else if (Math.abs(diff) === 1) {
+            await addReaction((v === 1) ? true : false);
+        }
+        rating += diff;
+    }
+
+    const addReaction = async (approve: boolean) => {
+        const responce = await fetch(`/claims/${id}/react`, {
+            method: 'POST',
+            body: JSON.stringify({approve}),
+            headers: 
+            {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    const updateReaction = async (approve: boolean) => {
+        const responce = await fetch(`/claims/${id}/react`, {
+            method: 'PUT',
+            body: JSON.stringify({approve}),
+            headers: 
+            {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    const deleteReaction = async () => {
+        const responce = await fetch(`/claims/${id}/react`, {
+            method: 'DELETE'
+        });
+    }
 </script>
 
 <div class="claim">
@@ -18,9 +70,9 @@
             <h4>1 source</h4>
         </div>
         <div class="claim-rating-actions">
-            <button class="button">⇑</button>
+            <button on:click={() => setReaction(1)} class={approveButtonStyle}>⇑</button>
             <button class="button">{rating}</button>
-            <button class="button">⇓</button>
+            <button on:click={() => setReaction(-1)} class={disapproveButtonStyle}>⇓</button>
         </div>
     </div>
 
@@ -53,7 +105,15 @@
         gap: 5px;
     }
     .button {
-        min-width: 20px;
+        min-width: 30px;
+    }
+    .approve-active {
+        background-color: $accent-green1;
+        color: $background2;
+    }
+    .disapprove-active {
+        background-color: $accent-red1;
+        color: $background2;
     }
 
 </style>

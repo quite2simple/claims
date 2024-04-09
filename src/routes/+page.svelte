@@ -15,7 +15,8 @@
             title={claim.title} 
             creator={claim.creator.username} 
             description={claim.description} 
-            rating={claim.rating} 
+            rating={claim.rating}
+            userReaction={claim.reaction} 
             />
         {/each}
     </div>

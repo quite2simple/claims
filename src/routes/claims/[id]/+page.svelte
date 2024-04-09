@@ -11,7 +11,7 @@
     {#if data.sources}
         <p>Sources:</p>
         {#each data.sources as source}
-            <a href="{source.url}">{source.url}</a>
+            <a href="{source.url}">{source.url}</a><br>
         {/each}
     {:else}
         <p>No sources were provided</p>

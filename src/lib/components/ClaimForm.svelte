@@ -35,11 +35,11 @@
 <form method="post" class="claim-form" use:enhance>
     <div class="form-field">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title"><br>
+        <input type="text" name="title" id="title" required><br>
     </div>
     <div class="form-field">
         <label for="description">Description: </label><br>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
+        <textarea name="description" id="description" cols="30" rows="10" required></textarea><br>
     </div>
     <div class="form-field">
         <div id="sources">
@@ -47,6 +47,7 @@
             <div class="source-input">
                 <input type="text"
                 on:input={e => handleSourceEdit(source.i, e.target)}
+                placeholder="example.com"
                 >
                 <button on:click|preventDefault={() => removeSource(source.i)}>Remove</button>
             </div>
@@ -60,3 +61,10 @@
     
 
 </form>
+
+<style lang="scss">
+    .source-input {
+        display: flex;
+        gap: 1rem;
+    }
+</style>

@@ -1,7 +1,21 @@
 <script lang="ts">
     export let data;
+    
+    let deleteMessage: string | null = null;
 
     $: isYours = data.claim?.creator.id === data.user?.id;
+
+    const onDelete = async () => {
+        const answer = confirm("Are you sure you want to delete this claim?");
+        if (answer) {
+            const responce = await fetch("/claims/" + data.claim?.id, {
+                method: "DELETE"
+            });
+            const res = await responce.json();
+            console.log(res);
+            deleteMessage = res.message;
+        }
+    };
 </script>
 
 <div id="claim">
@@ -16,7 +30,12 @@
     {:else}
         <p>No sources were provided</p>
     {/if}
-    
+    {#if isYours}
+        <button on:click={onDelete}>Delete</button>
+        {#if deleteMessage}
+            <p>{deleteMessage}</p>
+        {/if}
+    {/if}
     
 
 

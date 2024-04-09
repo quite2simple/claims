@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import prisma from '$lib/prisma';
 
 export const load = (async () => {
@@ -59,7 +59,7 @@ export const actions: Actions = {
             }))}
         )
         console.log(`A new claim with an id of ${newClaim.id} was created by ${user.username}`);
-
+        redirect(302, `/claims/${newClaim.id}`);
         // console.log(title, description, sources);
     }
 }

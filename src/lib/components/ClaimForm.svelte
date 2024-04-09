@@ -29,10 +29,15 @@
         const target = e as HTMLInputElement;
         editSource(i, target.value);
     }
+
+    export let message: string | undefined;
     
 </script>
 
 <form method="post" class="claim-form" use:enhance>
+    {#if message}
+        <p>{message}</p>
+    {/if}
     <div class="form-field">
         <label for="title">Title: </label>
         <input type="text" name="title" id="title" required><br>

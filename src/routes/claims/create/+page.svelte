@@ -1,6 +1,6 @@
 <script lang="ts">
     import ClaimForm from '$lib/components/ClaimForm.svelte';
-    export let data;
+    export let form;
 </script>
 
-<ClaimForm />
+<ClaimForm message={form?.message}/>

@@ -3,6 +3,10 @@
     export let form;
 </script>
 
+<svelte:head>
+    <title>Sign up</title>
+</svelte:head>
+
 <div class="auth-form">
     <h1>Sign up</h1>
     <form method="POST" use:enhance>

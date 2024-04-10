@@ -3,4 +3,8 @@
     export let form;
 </script>
 
+<svelte:head>
+    <title>Create claim</title>
+</svelte:head>
+
 <ClaimForm message={form?.message}/>

@@ -20,6 +20,10 @@
     };
 </script>
 
+<svelte:head>
+    <title>{data.claim?.title}</title>
+</svelte:head>
+
 <div id="claim">
     <div id="title-creator">
         <h1>{data.claim?.title}</h1>

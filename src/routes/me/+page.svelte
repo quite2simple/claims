@@ -6,6 +6,10 @@
     { month: "long", day: "numeric", year: "numeric" });
 </script>
 
+<svelte:head>
+    <title>Me</title>
+</svelte:head>
+
 <div id="me">
     <span class="wip-placeholder">This is a prototype page. It will be reworked in the future</span>
     <h1>@{user?.username}</h1>

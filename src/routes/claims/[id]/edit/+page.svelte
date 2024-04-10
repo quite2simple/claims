@@ -4,6 +4,10 @@
     export let form;
 </script>
 
+<svelte:head>
+    <title>Edit claim</title>
+</svelte:head>
+
 <ClaimForm 
     editTitle={data.claim?.title} 
     editDescription={data.claim?.description}

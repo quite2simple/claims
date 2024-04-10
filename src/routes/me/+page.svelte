@@ -2,7 +2,7 @@
     export let data;
 
     $: user = data.user;
-    $: createdAt = user?.createdAt.toLocaleString("en-US", 
+    $: createdAt = user?.createdAt?.toLocaleString("en-US", 
     { month: "long", day: "numeric", year: "numeric" });
 </script>
 

@@ -31,11 +31,11 @@
         <p>No sources were provided</p>
     {/if}
     {#if isYours}
-        <button on:click={onDelete}>Delete</button>
         {#if deleteMessage}
             <p>{deleteMessage}</p>
         {/if}
         <a href="/claims/{data.claim?.id}/edit" class="nav-button">Edit</a>
+        <button on:click={onDelete} class="negative-button">Delete</button>
     {/if}
     
 
@@ -44,6 +44,9 @@
 
 <style lang="scss">
     #claim {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
         width: 80%;
         margin: 0 auto;
         padding: 1rem;

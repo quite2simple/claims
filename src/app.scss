@@ -9,13 +9,19 @@
 $background1: hsl(272, 100%, 10%);
 $background2: hsl(272, 100%, 12%);
 $background3: hsl(272, 100%, 15%);
+
 $text: hsl(0, 0%, 100%);
 $text-subtle: hsl(271, 100%, 90%);
-$primary: hsl(272, 100%, 25%);
+
+$primary: hsl(272, 100%, 40%);
+$secondary: hsl(272, 100%, 25%);
+
 $accent-green1: hsl(165, 100%, 40%);
 $accent-green2: hsl(165, 100%, 60%);
 $accent-red1: hsl(330, 100%, 40%);
 $accent-red2: hsl(330, 100%, 60%);
+
+$special: hsl(30, 100%, 40%);
 
 $h1-size: 3rem;
 $h2-size: 2.2rem;
@@ -93,19 +99,44 @@ label {
     margin-right: 0.5rem;
 }
 
-button {
+@mixin button-style($background-color: $secondary) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $primary;
+    background-color: $background-color;
     font: inherit;
     font-size: 2rem;
     color: inherit;
     border: none;
+    text-decoration: none;
     padding: 2px 5px;
     border-radius: 5px;
     width: fit-content;
     height: fit-content;
+}
+
+button {
+    @include button-style();
+}
+
+.primary-button {
+    @include button-style($primary);
+}
+
+.positive-button {
+    @include button-style($accent-green1);
+}
+
+.negative-button {
+    @include button-style($accent-red1);
+}
+
+.mod-button {
+    @include button-style($special);
+}
+
+.nav-button {
+    @include button-style();
 }
 
 @mixin inline-svg($size) {

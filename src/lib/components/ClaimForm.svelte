@@ -1,11 +1,24 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
+    import { onMount } from "svelte";
 
-    let sources = [
-        {
-            i: 0,
-            value: "example.com"
-        }
+    export let editId: number | null = null;
+    export let editTitle: string | null = null;
+    export let editDescription: string | null=  null;
+    export let editSources: string[] = [];
+    
+
+    onMount(() => {
+        editSources.forEach((source, i) => {
+            sources = [...sources, {
+                i,
+                value: source
+            }]
+        });
+    });
+
+    let sources: {i: number, value: string}[] = [
+
     ];
 
     $: sourcesStr = sources.map(source => source.value).join(", ");
@@ -40,11 +53,11 @@
     {/if}
     <div class="form-field">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" required><br>
+        <input type="text" name="title" id="title" required bind:value={editTitle}><br>
     </div>
     <div class="form-field">
         <label for="description">Description: </label><br>
-        <textarea name="description" id="description" cols="30" rows="10" required></textarea><br>
+        <textarea name="description" id="description" cols="30" rows="10" required bind:value={editDescription}></textarea><br>
     </div>
     <div class="form-field">
         <div id="sources">
@@ -62,6 +75,7 @@
         </div>
     </div>
     <input type="hidden" bind:value={sourcesStr} name="sources">
+    <input type="hidden" bind:value={editId} name="editId">
     <button>Submit</button>
     
 

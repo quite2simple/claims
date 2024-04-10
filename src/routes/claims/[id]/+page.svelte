@@ -35,6 +35,7 @@
         {#if deleteMessage}
             <p>{deleteMessage}</p>
         {/if}
+        <a href="/claims/{data.claim?.id}/edit" class="nav-button">Edit</a>
     {/if}
     
 

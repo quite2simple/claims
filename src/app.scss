@@ -119,6 +119,13 @@ button {
     @include button-style();
 }
 
+.nav-button {
+    @include button-style();
+    &:hover {
+        color: $text;
+    }
+}
+
 .primary-button {
     @include button-style($primary);
 }
@@ -135,9 +142,6 @@ button {
     @include button-style($special);
 }
 
-.nav-button {
-    @include button-style();
-}
 
 @mixin inline-svg($size) {
     height: $size;

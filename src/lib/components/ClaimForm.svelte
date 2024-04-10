@@ -67,7 +67,7 @@
                 on:input={e => handleSourceEdit(source.i, e.target)}
                 placeholder="example.com"
                 >
-                <button on:click|preventDefault={() => removeSource(source.i)}>Remove</button>
+                <button on:click|preventDefault={() => removeSource(source.i)} class="negative-button">Remove</button>
             </div>
                 
             {/each}
@@ -76,7 +76,7 @@
     </div>
     <input type="hidden" bind:value={sourcesStr} name="sources">
     <input type="hidden" bind:value={editId} name="editId">
-    <button>Submit</button>
+    <button class="primary-button">Submit</button>
     
 
 </form>

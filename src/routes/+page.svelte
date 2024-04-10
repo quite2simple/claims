@@ -6,7 +6,7 @@
 
 <div id="page">
     <div id="options">
-
+        <a href="/claims/create" class="nav-button positive-button">Create a claim!</a>
     </div>
     <div id="feed">
         {#each data.claims as claim}
@@ -29,5 +29,18 @@
         display: grid;
         grid-template-columns: 20% 60% 20%;
         grid-template-rows: 100vh;
+    }
+    #options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    #feed {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
     }
 </style>

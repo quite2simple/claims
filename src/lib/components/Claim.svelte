@@ -83,7 +83,6 @@
         background-color: $background2;
         padding: 5px 20px 20px;
         border-radius: 15px;
-        margin: 10px 0;
     }
     .claim-footer {
         /* Horizontal flexbox with children on the opposite ends of the div */

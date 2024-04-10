@@ -38,9 +38,7 @@
     }
 
     #feed {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        @include vflex(1rem);
         padding-top: 1rem;
     }
 </style>

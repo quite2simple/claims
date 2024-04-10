@@ -40,8 +40,7 @@
         */
     }
     nav, a {
-        display: flex;
+        @include hflex(1rem);
         align-items: center;
-        gap: 1rem;
     }
 </style>

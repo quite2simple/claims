@@ -1,5 +1,9 @@
+<script lang="ts">
+    export let url: string;
+</script>
+
 <div class="source">
-    <a class="source-url" href="https://example.com"><h4>https://example.com</h4></a>
+    <a class="source-url" href={url}><h4>{url}</h4></a>
     <h4>Not reviewed</h4>
 </div>
 
@@ -11,7 +15,7 @@
     }
     .source-url {
         text-decoration: none;
-        background-color: $primary;
+        background-color: $secondary;
         color: $text;
         padding: 0.25rem 1rem;
         margin-right: 1.5rem;

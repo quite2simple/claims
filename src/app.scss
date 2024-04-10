@@ -29,10 +29,8 @@ $h3-size: 1.6rem;
 $h4-size: 1.6rem;
 
 @mixin centered {
-    display: flex;
-    flex-direction: column;
+    @include vflex(1rem);
     align-items: center;
-    gap: 1rem;
 }
 
 :root {
@@ -146,6 +144,17 @@ button {
 @mixin inline-svg($size) {
     height: $size;
     width: auto;
+}
+
+@mixin hflex($gap: 0.5rem) {
+    display: flex;
+    gap: $gap;
+}
+
+@mixin vflex($gap: 0.5rem) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
 }
 
 .auth-form, .claim-form {

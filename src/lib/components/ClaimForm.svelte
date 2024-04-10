@@ -83,7 +83,6 @@
 
 <style lang="scss">
     .source-input {
-        display: flex;
-        gap: 1rem;
+        @include hflex(1rem);
     }
 </style>

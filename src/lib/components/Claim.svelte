@@ -100,8 +100,7 @@
         width: fit-content;
     }
     .claim-rating-actions {
-        display: flex;
-        gap: 5px;
+        @include hflex(5px);
     }
     .button {
         min-width: 30px;

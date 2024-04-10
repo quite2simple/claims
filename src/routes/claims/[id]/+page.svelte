@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Source from "$lib/components/Source.svelte";
+
     export let data;
     
     let deleteMessage: string | null = null;
@@ -19,24 +21,33 @@
 </script>
 
 <div id="claim">
-    <h1>{data.claim?.title}</h1>
-    <h3>By {data.claim?.creator.username} {#if isYours} (you){/if}</h3>
-    <p>{data.claim?.description}</p>
-    {#if data.sources}
-        <p>Sources:</p>
-        {#each data.sources as source}
-            <a href="{source.url}">{source.url}</a><br>
-        {/each}
-    {:else}
-        <p>No sources were provided</p>
-    {/if}
-    {#if isYours}
-        {#if deleteMessage}
-            <p>{deleteMessage}</p>
+    <div id="title-creator">
+        <h1>{data.claim?.title}</h1>
+        <h3>By {data.claim?.creator.username} {#if isYours} (you){/if}</h3>
+    </div>
+    <div id="description">
+        <p>{data.claim?.description}</p>
+    </div>
+    <div id="sources">
+        {#if data.sources}
+            <p>Sources:</p>
+            {#each data.sources as source}
+                <Source url={source.url} />
+            {/each}
+        {:else}
+            <p>No sources were provided</p>
         {/if}
-        <a href="/claims/{data.claim?.id}/edit" class="nav-button">Edit</a>
-        <button on:click={onDelete} class="negative-button">Delete</button>
-    {/if}
+    </div>
+    <div id="actions">
+        {#if isYours}
+            {#if deleteMessage}
+                <p>{deleteMessage}</p>
+            {/if}
+            <a href="/claims/{data.claim?.id}/edit" class="nav-button">Edit</a>
+            <button on:click={onDelete} class="negative-button">Delete</button>
+        {/if}
+    </div>
+
     
 
 
@@ -44,13 +55,15 @@
 
 <style lang="scss">
     #claim {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
+        @include vflex(2rem);
         width: 80%;
         margin: 0 auto;
         padding: 1rem;
         background-color: $background2;
         border-radius: 2rem;
+    }
+
+    #actions {
+        @include vflex(1rem);
     }
 </style>

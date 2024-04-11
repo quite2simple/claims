@@ -5,6 +5,7 @@
     export let createdAt = new Date();
     export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
     export let rating = 1;
+    export let sourceCount = 0;
     export let verificationStatus: boolean | null = null;
     // -1 - disapprove, 1 - approve, 0 - no reaction
     export let userReaction = 0;
@@ -81,7 +82,7 @@
     <a href={"/claims/" + id} class="button read-full">Read full</a>
     <div class="claim-footer">
         <div class="claim-sources">
-            <h4>1 source</h4>
+            <h4>Sources: {sourceCount}</h4>
         </div>
         <div class="claim-rating-actions">
             <button on:click={() => setReaction(1)} class={approveButtonStyle}>⇑</button>

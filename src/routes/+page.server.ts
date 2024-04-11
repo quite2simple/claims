@@ -8,6 +8,7 @@ export const load = (async ({ parent }) => {
             include: 
             {
                 creator: true,
+                sources: true,
                 reactions: true
             },
     });
@@ -38,6 +39,7 @@ export const load = (async ({ parent }) => {
             ...claim, 
             rating,
             reaction,
+            sourceCount: claim.sources.length,
             isVerified: verified
         }
     });

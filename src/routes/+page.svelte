@@ -21,6 +21,7 @@
             createdAt={claim.createdAt} 
             description={claim.description} 
             rating={claim.rating}
+            sourceCount={claim.sourceCount}
             verificationStatus={claim.isVerified}
             userReaction={claim.reaction} 
             />

@@ -112,7 +112,7 @@ label {
     width: fit-content;
     height: fit-content;
     &:hover {
-        background-color: darken($background-color, 10%);
+        background-color: darken($background-color, $hover-darkening);
     }
 }
 

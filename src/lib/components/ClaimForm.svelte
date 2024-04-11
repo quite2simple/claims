@@ -65,7 +65,7 @@
             <div class="source-input">
                 <input type="text"
                 on:input={e => handleSourceEdit(source.i, e.target)}
-                placeholder="example.com"
+                placeholder="example.com" value={source.value}
                 >
                 <button on:click|preventDefault={() => removeSource(source.i)} class="negative-button">Remove</button>
             </div>

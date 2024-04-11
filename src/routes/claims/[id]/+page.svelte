@@ -6,6 +6,7 @@
     let deleteMessage: string | null = null;
 
     $: isYours = data.claim?.creator.id === data.user?.id;
+    $: modOthersButton = data.canModify && !isYours ? "mod-button" : "";
 
     const onDelete = async () => {
         const answer = confirm("Are you sure you want to delete this claim?");
@@ -43,12 +44,12 @@
         {/if}
     </div>
     <div id="actions">
-        {#if isYours}
+        {#if data.canModify}
             {#if deleteMessage}
                 <p>{deleteMessage}</p>
             {/if}
-            <a href="/claims/{data.claim?.id}/edit" class="nav-button">Edit</a>
-            <button on:click={onDelete} class="negative-button">Delete</button>
+            <a href="/claims/{data.claim?.id}/edit" class={`nav-button ${modOthersButton}`}>Edit</a>
+            <button on:click={onDelete} class={`negative-button ${modOthersButton}`}>Delete</button>
         {/if}
     </div>
 

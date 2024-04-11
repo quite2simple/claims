@@ -17,7 +17,8 @@
             <Claim
             id={claim.id} 
             title={claim.title} 
-            creator={claim.creator.username} 
+            creator={claim.creator.username}
+            createdAt={claim.createdAt} 
             description={claim.description} 
             rating={claim.rating}
             userReaction={claim.reaction} 

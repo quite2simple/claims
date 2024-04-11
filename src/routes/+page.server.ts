@@ -2,10 +2,15 @@ import type { PageServerLoad } from './$types';
 import prisma from '$lib/prisma';
 
 export const load = (async ({ parent }) => {
-    const query = await prisma.claim.findMany({ include: {
-        creator: true,
-        reactions: true
-    }});
+    const query = await prisma.claim.findMany(
+        {
+            orderBy: { createdAt: 'desc' }, 
+            include: 
+            {
+                creator: true,
+                reactions: true
+            },
+    });
     const parentData = await parent();
     const responce = query.map((claim) => {
         let rating = 0;

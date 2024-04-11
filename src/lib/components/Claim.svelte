@@ -2,6 +2,7 @@
     export let id = 0;
     export let title = "Claim title";
     export let creator = "By creator";
+    export let createdAt = new Date();
     export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
     export let rating = 1;
     // -1 - disapprove, 1 - approve, 0 - no reaction
@@ -61,7 +62,8 @@
 <div class="claim">
     <div class="claim-header">
         <h2>{title}</h2>
-        <h3>By {creator}</h3>
+        <h3>@{creator}  {createdAt.toLocaleString("en-US", 
+        { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "numeric" })}</h3>
     </div>
     <p>{description}</p>
     <a href={"/claims/" + id} class="button read-full">Read full</a>

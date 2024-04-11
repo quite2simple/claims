@@ -5,11 +5,23 @@
     export let createdAt = new Date();
     export let description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
     export let rating = 1;
+    export let verificationStatus: boolean | null = null;
     // -1 - disapprove, 1 - approve, 0 - no reaction
     export let userReaction = 0;
 
     $: approveButtonStyle = (userReaction === 1) ? "button approve-active" : "button";
     $: disapproveButtonStyle = (userReaction === -1) ? "button disapprove-active" : "button";
+    $: claimBorderStyle = getBorderStyle();
+
+    const getBorderStyle = () => {
+        if (verificationStatus === null) {
+            return "claim";
+        }
+        else if (verificationStatus === true) {
+            return "claim claim-verified";
+        }
+        return "claim claim-refuted";
+    }
 
     const setReaction = async (v: number) => {
         const oldUserReaction = userReaction;
@@ -59,7 +71,7 @@
     }
 </script>
 
-<div class="claim">
+<div class={claimBorderStyle}>
     <div class="claim-header">
         <h2>{title}</h2>
         <h3>@{creator}  {createdAt.toLocaleString("en-US", 
@@ -85,6 +97,15 @@
         background-color: $background2;
         padding: 5px 20px 20px;
         border-radius: 15px;
+        border-style: solid;
+        border-width: 4px;
+        border-color: $background2;
+    }
+    .claim-verified {
+        border-color: $accent-green1;
+    }
+    .claim-refuted {
+        border-color: $accent-red1;
     }
     .claim-footer {
         /* Horizontal flexbox with children on the opposite ends of the div */

@@ -24,10 +24,21 @@ export const load = (async ({ parent }) => {
                 reaction = (reactionRecord.approve) ? 1 : -1;
             }
         }
+        let verified: boolean | null;
+        if (claim?.verified === true) {
+            verified = true;
+        } 
+        else if (claim?.verified === false && claim?.verifiedAt === null) {
+            verified = null;
+        }
+        else {
+            verified = false;
+        }
         return {
             ...claim, 
             rating,
-            reaction
+            reaction,
+            isVerified: verified
         }
     });
     return {claims: responce};
